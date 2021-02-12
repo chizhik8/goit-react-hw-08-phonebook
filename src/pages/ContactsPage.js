@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 import ContactForm from '../components/ContactForm/ContactForm';
 import ContactList from '../components/ContactList/ContactList';
 import Filter from '../components/Filter/Filter';
+import { connect } from 'react-redux';
 import contactsOperation from '../../src/redux/operations/contactsOperation';
 import contactsSelectors from '../../src/redux/selectors/contactsSelectors';
 // import authSelectors from '../redux/selectors/authSelectors';

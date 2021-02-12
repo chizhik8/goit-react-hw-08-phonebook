@@ -11,7 +11,7 @@ const addContacts = (name, number) => dispatch => {
       number,
     })
     .then(response => {
-      console.log('response addContacts:', response.data.name);
+      // console.log('response addContacts:', response.data.name);
       dispatch(
         contactsAction.addContactsSuccess({
           name,
@@ -28,7 +28,7 @@ const fetchContacts = () => dispatch => {
   axios
     .get('/contacts')
     .then(response => {
-      console.log('response fetchContacts:', response.data);
+      // console.log('response fetchContacts:', response.data);
       dispatch(
         contactsAction.fetchContactsSuccess(
           Object.keys(response.data).map(key => ({
@@ -42,7 +42,7 @@ const fetchContacts = () => dispatch => {
 
 const removeContact = id => dispatch => {
   dispatch(contactsAction.removeContactsRequest());
-  console.log('id revCont', id);
+  // console.log('id revCont', id);
   axios
     .delete(`/contacts/${id}`)
     .then(() => dispatch(contactsAction.removeContactsSuccess(id)))

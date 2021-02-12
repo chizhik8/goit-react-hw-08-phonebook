@@ -1,8 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import Navigation from '../Navigation/Navigation';
 import UserMenu from '../UserMenu/UserMenu';
+import { connect } from 'react-redux';
 import authSelectors from '../../redux/selectors/authSelectors';
 
 function Header({ isLogin }) {

@@ -17,8 +17,8 @@ const register = credentials => dispatch => {
   axios
     .post('/users/signup', credentials)
     .then(response => {
-      console.log('credentials:', credentials);
-      console.log('register response:', response);
+      // console.log('credentials:', credentials);
+      // console.log('register response:', response);
       token.set(response.data.token);
       dispatch(authActions.registerSuccess(response.data));
     })
@@ -30,8 +30,8 @@ const login = credentials => dispatch => {
   axios
     .post('/users/login', credentials)
     .then(response => {
-      console.log('credentials login:', credentials);
-      console.log('register response login:', response);
+      // console.log('credentials login:', credentials);
+      // console.log('register response login:', response);
       token.set(response.data.token);
       dispatch(authActions.loginSuccess(response.data));
     })
@@ -47,7 +47,7 @@ const getCurrentUser = () => (dispatch, getState) => {
     return;
   }
 
-  console.log('persistedToken:', persistedToken);
+  // console.log('persistedToken:', persistedToken);
 
   token.set(persistedToken);
   dispatch(authActions.getCurrentUserRequest());
@@ -55,7 +55,7 @@ const getCurrentUser = () => (dispatch, getState) => {
   axios
     .get('/users/current')
     .then(({ data }) => {
-      console.log('getCurrentUser data:', data);
+      // console.log('getCurrentUser data:', data);
       dispatch(authActions.getCurrentUserSuccess(data));
     })
     .catch(error => dispatch(authActions.getCurrentUserError(error)));
@@ -66,7 +66,7 @@ const logout = () => dispatch => {
   axios
     .post('/users/logout')
     .then(() => {
-      console.log('logOut!!!');
+      // console.log('logOut!!!');
       token.unset();
       dispatch(authActions.logoutSuccess());
     })
