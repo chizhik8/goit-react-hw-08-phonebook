@@ -11,12 +11,12 @@ const addContacts = (name, number) => dispatch => {
       number,
     })
     .then(response => {
-      // console.log('response addContacts:', response.data.name);
+      // console.log('response addContacts:', response.data);
       dispatch(
         contactsAction.addContactsSuccess({
           name,
           number,
-          id: response.data.name,
+          id: response.data.id,
         }),
       );
     })
