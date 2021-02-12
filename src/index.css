@@ -55,9 +55,10 @@ button:focus {
 }
 
 form {
-  width: 280px;
+  width: max-content;
   border-style: hidden;
   box-shadow: 0 0 5px 2px;
+  margin: 35px;
 }
 
 li {
@@ -76,7 +77,9 @@ h1,
 h2,
 h3 {
   color: teal;
-  text-shadow: 1px 1px 1px black, 0 0 0 black;
+  text-align: left;
+  margin-left: 20px;
+  /* text-shadow: 1px 1px 1px black, 0 0 0 black; */
 }
 
 .NavLinkList {
@@ -100,4 +103,21 @@ h3 {
   color: teal;
   font-weight: 600;
   text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
 }

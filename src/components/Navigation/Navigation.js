@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { maineroutes } from '../../routes';
-import UserMenu from '../UserMenu/UserMenu';
 
 export default function Navigation() {
   return (
@@ -24,7 +23,6 @@ export default function Navigation() {
           );
         })}
       </ul>
-      <UserMenu />
     </div>
   );
 }

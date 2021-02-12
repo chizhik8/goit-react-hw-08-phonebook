@@ -1,6 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-// import actionTypes from '../constants/contactsActionTypes';
 import contactsAction from '../actions/contactsAction';
 
 // ----------------------Contacts---------------------------------------

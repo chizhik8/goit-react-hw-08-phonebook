@@ -15,7 +15,7 @@ export class ContactsPage extends Component {
   render() {
     return (
       <div>
-        <h1>ContactsPage</h1>
+        {/* <h1>ContactsPage</h1> */}
         <ContactForm />
         {this.props.contacts.length > 0 ? (
           <Filter />
