@@ -11,6 +11,7 @@ import Header from './components/Header/Header';
 
 class App extends Component {
   componentDidMount() {
+    console.log('componentDidMount:', this.props.onGetCurrentUser());
     this.props.onGetCurrentUser();
   }
 
@@ -38,8 +39,6 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = {
+export default connect(null, {
   onGetCurrentUser: authOperation.getCurrentUser,
-};
-
-export default connect(null, mapDispatchToProps)(App);
+})(App);

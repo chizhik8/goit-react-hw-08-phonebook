@@ -53,7 +53,7 @@ const getCurrentUser = () => (dispatch, getState) => {
   dispatch(authActions.getCurrentUserRequest());
 
   axios
-    .get('/users/current', persistedToken)
+    .get('/users/current')
     .then(({ data }) => {
       console.log('getCurrentUser data:', data);
       dispatch(authActions.getCurrentUserSuccess(data));
