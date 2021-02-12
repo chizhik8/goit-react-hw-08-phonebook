@@ -7,6 +7,8 @@ export const maineroutes = [
     exact: true,
     component: lazy(() => import('./pages/HomePage')),
     isVisible: true,
+    private: false,
+    restricted: false,
   },
   {
     path: '/register',
@@ -14,6 +16,8 @@ export const maineroutes = [
     exact: false,
     component: lazy(() => import('./pages/RegisterPage')),
     isVisible: true,
+    private: false,
+    restricted: true,
   },
   {
     path: '/login',
@@ -21,6 +25,8 @@ export const maineroutes = [
     exact: false,
     component: lazy(() => import('./pages/LoginPage')),
     isVisible: true,
+    private: false,
+    restricted: true,
   },
   {
     path: '/contacts',
@@ -28,5 +34,7 @@ export const maineroutes = [
     exact: false,
     component: lazy(() => import('./pages/ContactsPage')),
     isVisible: true,
+    private: true,
+    restricted: false,
   },
 ];

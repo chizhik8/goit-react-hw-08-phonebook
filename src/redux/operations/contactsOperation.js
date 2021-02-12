@@ -1,18 +1,17 @@
 import axios from 'axios';
 import contactsAction from '../actions/contactsAction';
 
-// console.firebase.google.com/u/0/project/hw-js-7/database/hw-js-7-default-rtdb/data
-// axios.defaults.baseURL = 'https://hw-js-7-default-rtdb.firebaseio.com';
+axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
 const addContacts = (name, number) => dispatch => {
   dispatch(contactsAction.addContactsRequest());
   axios
-    .post('https://hw-js-7-default-rtdb.firebaseio.com/contacts.json', {
+    .post('/contacts', {
       name,
       number,
     })
     .then(response => {
-      // console.log('response:', response.data.name);
+      console.log('response addContacts:', response.data.name);
       dispatch(
         contactsAction.addContactsSuccess({
           name,
@@ -27,13 +26,13 @@ const addContacts = (name, number) => dispatch => {
 const fetchContacts = () => dispatch => {
   dispatch(contactsAction.fetchContactsRequest());
   axios
-    .get('https://hw-js-7-default-rtdb.firebaseio.com/contacts.json')
+    .get('/contacts')
     .then(response => {
+      console.log('response fetchContacts:', response.data);
       dispatch(
         contactsAction.fetchContactsSuccess(
           Object.keys(response.data).map(key => ({
             ...response.data[key],
-            id: key,
           })),
         ),
       );
@@ -43,9 +42,9 @@ const fetchContacts = () => dispatch => {
 
 const removeContact = id => dispatch => {
   dispatch(contactsAction.removeContactsRequest());
-  // console.log('id revCont', id);
+  console.log('id revCont', id);
   axios
-    .delete(`https://hw-js-7-default-rtdb.firebaseio.com/contacts/${id}.json`)
+    .delete(`/contacts/${id}`)
     .then(() => dispatch(contactsAction.removeContactsSuccess(id)))
     .catch(error => dispatch(contactsAction.removeContactsError(error)));
 };

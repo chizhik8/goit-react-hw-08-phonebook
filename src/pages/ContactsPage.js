@@ -6,11 +6,23 @@ import ContactList from '../components/ContactList/ContactList';
 import Filter from '../components/Filter/Filter';
 import contactsOperation from '../../src/redux/operations/contactsOperation';
 import contactsSelectors from '../../src/redux/selectors/contactsSelectors';
+// import authSelectors from '../redux/selectors/authSelectors';
 
 export class ContactsPage extends Component {
   componentDidMount() {
+    // if (!this.props.isLogin) {
+    //   this.props.history.replace('/login');
+    //   return;
+    // }
     this.props.onFetchContacts();
   }
+
+  // componentDidUpdate() {
+  //   if (!this.props.isLogin) {
+  //     this.props.history.replace('/login');
+  //     return;
+  //   }
+  // }
 
   render() {
     return (
@@ -33,6 +45,7 @@ const mapStateToProps = state => ({
   isLoadingContacts: contactsSelectors.getLoading(state),
   contacts: contactsSelectors.getContactItems(state),
   isAlertContacts: contactsSelectors.getAlert(state),
+  // isLogin: authSelectors.isLogin(state),
 });
 
 const mapDispatchToProps = {

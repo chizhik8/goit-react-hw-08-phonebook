@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 import { Suspense } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 import { maineroutes } from './routes';
 
 import authOperation from './redux/operations/authOperation';
 import Header from './components/Header/Header';
+
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
 class App extends Component {
   componentDidMount() {
@@ -22,12 +25,13 @@ class App extends Component {
         <Suspense fallback={<h1>Loading....</h1>}>
           <Switch>
             {maineroutes.map(route => {
-              return (
-                <Route
+              return route.private ? (
+                <PrivateRoute key={route.path} {...route} />
+              ) : (
+                <PublicRoute
                   key={route.path}
-                  exact={route.exact}
-                  path={route.path}
-                  component={route.component}
+                  {...route}
+                  restricted={route.restricted}
                 />
               );
             })}
