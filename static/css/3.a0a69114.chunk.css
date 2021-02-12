@@ -1,0 +1,2 @@
+.Logo-appear{transform:translateX(-100%)}.Logo-appear-active{transform:translateX(0);transition:transform .5s linear}.contacts-enter{opacity:0;transform:scale(.1);transform:translateX(-100%)}.contacts-enter-active{transition:all .25s ease-in}.contacts-enter-active,.contacts-exit{opacity:1;transform:scale(1);transform:translateX(0)}.contacts-exit-active{opacity:0;transform:scale(.1);transition:all .25s ease-in-out;transform:translateX(100%)}
+/*# sourceMappingURL=3.a0a69114.chunk.css.map */
